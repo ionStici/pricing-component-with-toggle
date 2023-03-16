@@ -1,4 +1,6 @@
 import './scss/main.scss';
+import store from './store/store';
+import { toggleAnnually, toggleMonthly } from './store/toggleSlice';
 
 document.querySelector('#app').innerHTML = ``;
 
