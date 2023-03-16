@@ -42,6 +42,7 @@
     background-image: var(--linear-gradient-main);
     border-radius: 50px;
     cursor: pointer;
+    transition: opacity 0.15s;
 
     .circle {
         width: 24px;
@@ -53,5 +54,9 @@
         position: absolute;
         top: 4px;
         left: 4px;
+    }
+
+    &:hover {
+        opacity: 0.5;
     }
 }

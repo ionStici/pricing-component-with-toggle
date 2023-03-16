@@ -1,15 +1,19 @@
 :root {
     --color-white: hsla(0, 0%, 100%, 1);
+    --color-white-25: hsla(0, 0%, 100%, 0.25);
     --color-very-light-gray-blue: hsl(240, 78%, 98%);
     --color-light-gray-blue: hsl(234, 14%, 74%);
     --color-gray-blue: hsl(233, 13%, 49%);
+    --color-gray-blue-25: hsla(233, 13%, 49%, 0.25);
     --color-dark-gray-blue: hsl(232, 13%, 33%);
+    --color-blue: hsla(237, 63%, 65%, 1);
 
     --linear-gradient-main: linear-gradient(
         135deg,
         #a2a7f0 0.06%,
         #696edd 100.06%
     );
+    --box-shadow-main: 0px 20px 40px rgba(212, 210, 244, 0.5);
 }
 
 * {
@@ -30,6 +34,30 @@ button {
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--color-very-light-gray-blue);
+
+    @media only screen and (min-width: 870px) {
+        &::after {
+            content: url(./../images/bg-bottom.svg);
+            position: fixed;
+            z-index: -1;
+            left: 0;
+            bottom: -4px;
+        }
+    }
+
+    &::before {
+        content: url(./../images/bg-top.svg);
+
+        position: absolute;
+        z-index: -1;
+        top: -40px;
+        right: -195px;
+
+        @media only screen and (min-width: 870px) {
+            top: 0;
+            right: 0;
+        }
+    }
 }
 
 .main {
