@@ -33,4 +33,5 @@ const options = {
 const toggleSlice = createSlice(options);
 
 export const { toggleAnnually, toggleMonthly } = toggleSlice.actions;
+
 export default toggleSlice.reducer;
