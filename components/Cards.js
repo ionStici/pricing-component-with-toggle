@@ -4,19 +4,19 @@ let basic = store.getState().toggle.basic;
 let pro = store.getState().toggle.pro;
 let master = store.getState().toggle.basic;
 
-let cardBasic, cardPro, cardMaster;
-let CardsSection;
+let CardsSection = document.createElement('section');
+CardsSection.classList.add('section');
 
 store.subscribe(() => {
     basic = store.getState().toggle.basic;
     pro = store.getState().toggle.pro;
     master = store.getState().toggle.basic;
 
-    cardBasic = CreateCard(basic.title, basic.price, basic.list);
-    cardPro = CreateCard(pro.title, pro.price, pro.list);
-    cardMaster = CreateCard(master.title, master.price, master.list);
-
-    CardsSection.innerHTML = [cardBasic, cardPro, cardMaster].join('');
+    CardsSection.innerHTML = [
+        CreateCard(basic.title, basic.price, basic.list),
+        CreateCard(pro.title, pro.price, pro.list),
+        CreateCard(master.title, master.price, master.list),
+    ].join('');
 });
 
 const CreateCard = function (plan, price, data) {
@@ -36,12 +36,10 @@ const CreateCard = function (plan, price, data) {
     `;
 };
 
-cardBasic = CreateCard(basic.title, basic.price, basic.list);
-cardPro = CreateCard(pro.title, pro.price, pro.list);
-cardMaster = CreateCard(master.title, master.price, master.list);
-
-CardsSection = document.createElement('section');
-CardsSection.classList.add('section');
-CardsSection.innerHTML = [cardBasic, cardPro, cardMaster].join('');
+CardsSection.innerHTML = [
+    CreateCard(basic.title, basic.price, basic.list),
+    CreateCard(pro.title, pro.price, pro.list),
+    CreateCard(master.title, master.price, master.list),
+].join('');
 
 export default CardsSection;

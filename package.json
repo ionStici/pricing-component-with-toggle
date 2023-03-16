@@ -1,18 +1,19 @@
 {
-  "name": "pricing-component-with-toggle-fem",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "sass": "^1.59.3",
-    "vite": "^4.1.0"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.9.3"
-  }
+    "name": "pricing-component-with-toggle-fem",
+    "private": true,
+    "homepage": ".",
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "sass": "^1.59.3",
+        "vite": "^4.1.0"
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^1.9.3"
+    }
 }
