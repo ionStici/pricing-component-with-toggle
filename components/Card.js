@@ -4,7 +4,8 @@ let basic = store.getState().toggle.basic;
 let pro = store.getState().toggle.pro;
 let master = store.getState().toggle.basic;
 
-export let cardBasic, cardPro, cardMaster;
+let cardBasic, cardPro, cardMaster;
+let CardsSection;
 
 store.subscribe(() => {
     basic = store.getState().toggle.basic;
@@ -15,12 +16,12 @@ store.subscribe(() => {
     cardPro = CreateCard(pro.title, pro.price, pro.list);
     cardMaster = CreateCard(master.title, master.price, master.list);
 
-    console.log(basic);
+    CardsSection.innerHTML = [cardBasic, cardPro, cardMaster].join('');
 });
 
 const CreateCard = function (plan, price, data) {
     return `
-        <section class="card ${plan === 'Professional' ? 'card--blue' : ''}">
+        <div class="card ${plan === 'Professional' ? 'card--blue' : ''}">
             <h2 class="card__h2">${plan}</h2>
             <p class="card__price-box"><span class="card__dollar">$</span><span class="card__price">${price}</span></p>
 
@@ -31,10 +32,16 @@ const CreateCard = function (plan, price, data) {
             </ul>
 
             <button class="card__btn">Learn More</button>
-        </section>
+        </div>
     `;
 };
 
 cardBasic = CreateCard(basic.title, basic.price, basic.list);
 cardPro = CreateCard(pro.title, pro.price, pro.list);
 cardMaster = CreateCard(master.title, master.price, master.list);
+
+CardsSection = document.createElement('section');
+CardsSection.classList.add('section');
+CardsSection.innerHTML = [cardBasic, cardPro, cardMaster].join('');
+
+export default CardsSection;
