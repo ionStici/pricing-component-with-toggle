@@ -1,23 +1,40 @@
-// Basic
-// &dollar;19.99
-// &dollar;199.99
-// 500 GB Storage
-// 2 Users Allowed
-// Send up to 3 GB
-// Learn More
+import store from '../store/store';
 
-// Professional
-// &dollar;24.99
-// &dollar;249.99
-// 1 TB Storage
-// 5 Users Allowed
-// Send up to 10 GB
-// Learn More
+let basic = store.getState().toggle.basic;
+let pro = store.getState().toggle.pro;
+let master = store.getState().toggle.basic;
 
-// Master
-// &dollar;39.99
-// &dollar;399.99
-// 2 TB Storage
-// 10 Users Allowed
-// Send up to 20 GB
-// Learn More
+export let cardBasic, cardPro, cardMaster;
+
+store.subscribe(() => {
+    basic = store.getState().toggle.basic;
+    pro = store.getState().toggle.pro;
+    master = store.getState().toggle.basic;
+
+    cardBasic = CreateCard(basic.title, basic.price, basic.list);
+    cardPro = CreateCard(pro.title, pro.price, pro.list);
+    cardMaster = CreateCard(master.title, master.price, master.list);
+
+    console.log(basic);
+});
+
+const CreateCard = function (plan, price, data) {
+    return `
+        <section class="card ${plan === 'Professional' ? 'card--blue' : ''}">
+            <h2 class="card__h2">${plan}</h2>
+            <p class="card__price-box"><span class="card__dollar">$</span><span class="card__price">${price}</span></p>
+
+            <ul class="card__list">
+                <li class="card__item">${data[0]}</li>
+                <li class="card__item">${data[1]}</li>
+                <li class="card__item">${data[2]}</li>
+            </ul>
+
+            <button class="card__btn">Learn More</button>
+        </section>
+    `;
+};
+
+cardBasic = CreateCard(basic.title, basic.price, basic.list);
+cardPro = CreateCard(pro.title, pro.price, pro.list);
+cardMaster = CreateCard(master.title, master.price, master.list);

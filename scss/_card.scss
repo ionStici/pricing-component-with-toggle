@@ -1,0 +1,39 @@
+.card {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 29px 31px;
+
+    border-radius: 10px;
+    background-color: var(--color-white);
+
+    &--blue {
+        background-color: revert;
+        background-image: var(--linear-gradient-main);
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 32px;
+    }
+
+    &__h2 {
+    }
+
+    &__price-box {
+    }
+
+    &__dollar P {
+    }
+
+    &__price {
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+    }
+
+    &__btn {
+    }
+}
