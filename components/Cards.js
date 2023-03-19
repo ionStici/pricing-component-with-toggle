@@ -2,7 +2,7 @@ import store from '../store/store';
 
 let basic = store.getState().toggle.basic;
 let pro = store.getState().toggle.pro;
-let master = store.getState().toggle.basic;
+let master = store.getState().toggle.master;
 
 let CardsSection = document.createElement('section');
 CardsSection.classList.add('section');
@@ -10,7 +10,7 @@ CardsSection.classList.add('section');
 store.subscribe(() => {
     basic = store.getState().toggle.basic;
     pro = store.getState().toggle.pro;
-    master = store.getState().toggle.basic;
+    master = store.getState().toggle.master;
 
     CardsSection.innerHTML = [
         CreateCard(basic.title, basic.price, basic.list),
